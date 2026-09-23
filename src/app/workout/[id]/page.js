@@ -1,4 +1,5 @@
 import Link from "next/link";
+import WorkoutActions from "../../../components/WorkoutActions";
 import {
   ArrowLeft,
   Clock3,
@@ -145,15 +146,7 @@ export default async function WorkoutDetails({ params }) {
               </ol>
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="rounded-full bg-[#ccff00] px-6 py-3 text-sm font-black uppercase text-black transition hover:scale-[1.02]">
-                Add to today's plan
-              </button>
-
-              <button className="rounded-full border border-white/20 px-6 py-3 text-sm font-black uppercase text-white transition hover:border-[#ccff00] hover:text-[#ccff00]">
-                Save for later
-              </button>
-            </div>
+            <WorkoutActions workout={workout} />
           </div>
         </div>
       </section>

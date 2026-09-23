@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { Dumbbell, Bookmark } from "lucide-react";
+import { useFitLog } from "../context/FitLogContext";
 
 export default function Navbar() {
+  const { plan, saved } = useFitLog();
+
   return (
     <nav className="border-b border-white/10 bg-[#0b0b0b]">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
@@ -33,10 +36,12 @@ export default function Navbar() {
           className="flex items-center gap-2 rounded-full border border-white/20 px-3 py-2 text-sm"
         >
           <span className="hidden sm:inline">Plan</span>
-          <span className="font-bold text-[#ccff00]">0</span>
+          <span className="font-bold text-[#ccff00]">{plan.length}</span>
+
           <Bookmark size={16} />
+
           <span className="hidden sm:inline">Saved</span>
-          <span className="font-bold">0</span>
+          <span className="font-bold">{saved.length}</span>
         </Link>
       </div>
     </nav>
