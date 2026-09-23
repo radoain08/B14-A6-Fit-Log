@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { Clock3, Flame, Star, Check, X } from "lucide-react";
 import { useFitLog } from "../../context/FitLogContext";
 
@@ -32,6 +33,8 @@ export default function MyPlan() {
     setCompleted((current) =>
       current.includes(id) ? current : [...current, id]
     );
+
+    toast.success("Workout marked as done!");
   }
 
   function handleRemove(id) {
@@ -40,6 +43,8 @@ export default function MyPlan() {
     } else {
       removeFromSaved(id);
     }
+
+    toast.success("Workout removed!");
   }
 
   return (
