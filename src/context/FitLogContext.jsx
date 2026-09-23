@@ -1,12 +1,44 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const FitLogContext = createContext(null);
 
 export function FitLogProvider({ children }) {
   const [plan, setPlan] = useState([]);
   const [saved, setSaved] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    try {
+      const storedPlan = localStorage.getItem("fitlog-plan");
+      const storedSaved = localStorage.getItem("fitlog-saved");
+
+      if (storedPlan) {
+        setPlan(JSON.parse(storedPlan));
+      }
+
+      if (storedSaved) {
+        setSaved(JSON.parse(storedSaved));
+      }
+    } catch (error) {
+      console.error("Failed to load FitLog data:", error);
+    } finally {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isLoaded) return;
+
+    localStorage.setItem("fitlog-plan", JSON.stringify(plan));
+  }, [plan, isLoaded]);
+
+  useEffect(() => {
+    if (!isLoaded) return;
+
+    localStorage.setItem("fitlog-saved", JSON.stringify(saved));
+  }, [saved, isLoaded]);
 
   function addToPlan(workout) {
     setPlan((current) => {
