@@ -76,12 +76,13 @@ export function FitLogProvider({ children }) {
     () => ({
       plan,
       saved,
+      isLoaded,
       addToPlan,
       removeFromPlan,
       saveForLater,
       removeFromSaved,
     }),
-    [plan, saved]
+    [plan, saved, isLoaded]
   );
 
   return (

@@ -10,14 +10,13 @@ export default function MyPlan() {
   const {
     plan,
     saved,
+    isLoaded,
     removeFromPlan,
     removeFromSaved,
   } = useFitLog();
 
   const [activeTab, setActiveTab] = useState("plan");
   const [completed, setCompleted] = useState([]);
-
-  const currentList = activeTab === "plan" ? plan : saved;
 
   const totalMinutes = plan.reduce(
     (total, workout) => total + workout.duration,
@@ -46,6 +45,18 @@ export default function MyPlan() {
 
     toast.success("Workout removed!");
   }
+
+  if (!isLoaded) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-[#0b0b0b]">
+        <p className="text-sm font-bold uppercase tracking-wider text-white/60">
+          Loading workouts…
+        </p>
+      </main>
+    );
+  }
+
+  const currentList = activeTab === "plan" ? plan : saved;
 
   return (
     <main className="min-h-screen bg-[#0b0b0b]">
