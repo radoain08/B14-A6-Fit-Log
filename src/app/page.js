@@ -46,36 +46,40 @@ export default function Home() {
 
   return (
     <main className="bg-[#0b0b0b]">
-      <section className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
-        <div>
-          <p className="mb-4 text-sm font-bold tracking-[0.25em] text-[#ccff00]">
-            WORKOUT LIBRARY
-          </p>
+      <section className="mx-auto max-w-7xl px-5 py-8 md:py-10">
+        <div className="grid min-h-[440px] items-center overflow-hidden rounded-2xl border border-white/10 bg-[#141414] px-8 py-10 md:grid-cols-[1.15fr_0.85fr] md:px-14 md:py-12">
+          <div>
+            <p className="mb-5 text-sm font-bold tracking-[0.25em] text-[#ccff00]">
+              WORKOUT LIBRARY
+            </p>
 
-          <h1 className="max-w-3xl text-5xl font-black uppercase leading-[0.95] md:text-7xl">
-            TRAIN WITH INTENT. LOG EVERY SET.
-          </h1>
+            <h1 className="max-w-3xl text-5xl font-black uppercase leading-[0.92] md:text-6xl lg:text-7xl">
+              TRAIN WITH INTENT. LOG
+              <br />
+              EVERY SET.
+            </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/60">
-            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
-            into today's plan, and watch the week's work add up.
-          </p>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-white/60 md:text-lg md:leading-8">
+              FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
+              into today's plan, and watch the week's work add up.
+            </p>
 
-          <a
-            href="#library"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#ccff00] px-6 py-3 text-sm font-black uppercase tracking-wide text-black transition hover:scale-105"
-          >
-            <span>BROWSE WORKOUTS</span>
-            <ArrowRight size={18} />
-          </a>
-        </div>
+            <a
+              href="#library"
+              className="mt-8 inline-flex items-center gap-2 rounded-md bg-[#ccff00] px-6 py-3 text-sm font-black uppercase tracking-wide text-black transition hover:scale-105"
+            >
+              <span>BROWSE WORKOUTS</span>
+              <ArrowRight size={18} />
+            </a>
+          </div>
 
-        <div className="overflow-hidden rounded-3xl border border-white/10">
-          <img
-            src="/banner.png"
-            alt="Workout training"
-            className="h-[360px] w-full object-cover md:h-[500px]"
-          />
+          <div className="flex items-center justify-center">
+            <img
+              src="/banner.png"
+              alt="Workout training"
+              className="h-[320px] w-full object-contain md:h-[420px]"
+            />
+          </div>
         </div>
       </section>
 
